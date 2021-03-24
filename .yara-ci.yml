@@ -2,3 +2,10 @@ files:
   accept:
   -"**.yar"
   -"**.yara"
+
+false_negatives:
+  meta_names:
+    - hash*
+    - sha1*
+    - sha256*
+    -md5*
