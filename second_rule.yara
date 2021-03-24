@@ -12,7 +12,7 @@ rule malware_family{
     $dll1 = "kernel32.dll" nocase
     $dll2 = "winhttp.dll" nocase
   condition:
-    $dll1 and $dll2 and
+    //$dll1 and $dll2 and
     //pe.machine == pe.MACHINE_I386 and (pe.characteristics & pe.EXECUTABLE_IMAGE) and
     //pe.subsystem == pe.SUBSYSTEM_WINDOWS_GUI and
     /*
