@@ -6,7 +6,8 @@ rule malware_family{
     description = "Second rule"
     author = " Ismael Ouattara"
     date = " March, 23 2021"
-    sha256 = "915a3b7045e8fc99e2361a3a4c5eae9500f8063d996771f93a96b64dd938eef4"
+    sha256_1 = "915a3b7045e8fc99e2361a3a4c5eae9500f8063d996771f93a96b64dd938eef4"
+    sha256_2 = "bd030578ee9dfbeec78deee6a26ea78137800c5279c2311cb1dab38ccc1dac92"
   strings:
     $dll1 = "kernel32.dll" nocase
     $dll2 = "winhttp.dll" nocase
