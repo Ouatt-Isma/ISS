@@ -1,25 +1,11 @@
 import "pe"
-rule first_rule
-{
-  meta:
-    description = "First rule"
-    author = " Ismael Ouattara"
-    date = " March, 23 2021"
-    sha256 = "915a3b7045e8fc99e2361a3a4c5eae9500f8063d996771f93a96b64dd938eef4"
-
-  strings:
-    $domain1 = "telete.in"
-
-  condition:
-    $domain1
-}
-
 
 rule rule_pe{
   meta:
     description = "Second rule"
     author = " Ismael Ouattara"
     date = " March, 23 2021"
+    sha256 = "915a3b7045e8fc99e2361a3a4c5eae9500f8063d996771f93a96b64dd938eef4"
 
   condition:
     pe.machine == pe.MACHINE_I386 and (pe.characteristics & pe.EXECUTABLE_IMAGE) and
@@ -27,7 +13,7 @@ rule rule_pe{
     pe.timestamp == 1586498842 //and pe.entry_point == 0x4d42
 
     and pe.rich_signature.offset == 0x80 and
-    pe.rich_signature.length == 89 and
+    pe.rich_signature.length == 88 and
     pe.rich_signature.key == 0x7BAFAA51 and
     //pe.rich_signature.clear_data == "DanS" //0x536E6144
     pe.exports("_futurama@4") and
