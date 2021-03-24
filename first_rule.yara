@@ -19,8 +19,8 @@ rule malware_1{
     //rich signature is enough
     pe.rich_signature.offset == 0x80 and
     pe.rich_signature.length == 88 and
-    pe.rich_signature.key == 0x7BAFAA51 // and
-    //pe.rich_signature.clear_data == "DanS" //0x536E6144
+    pe.rich_signature.key == 0x7BAFAA51 and
+    //pe.rich_signature.clear_data == "DanS" //0x536E6144 and
     
     pe.exports("_futurama@4") and
     pe.exports("_hiduk@8") and
