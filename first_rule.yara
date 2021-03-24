@@ -14,7 +14,7 @@ rule malware_1{
     $dll1 and $dll2 and
     pe.machine == pe.MACHINE_I386 and (pe.characteristics & pe.EXECUTABLE_IMAGE) and
     pe.subsystem == pe.SUBSYSTEM_WINDOWS_GUI and
-    pe.timestamp == 1586498842 //and pe.entry_point == 0x4d42 and 
+    pe.timestamp == 1586498842 and //pe.entry_point == 0x4d42 and 
     
     //rich signature is enough
     pe.rich_signature.offset == 0x80 and
