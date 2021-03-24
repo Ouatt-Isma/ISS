@@ -1,5 +1,5 @@
 import "pe"
-import "cuckoo"
+//import "cuckoo"
 
 rule malware_family{
   meta:
