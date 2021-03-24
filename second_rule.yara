@@ -22,6 +22,6 @@ rule malware_family{
     pe.exports("_lifan@8") and
     pe.imports("winhttp.dll", "WinHttpCloseHandle") and
     pe.imports("kernel32.dll", "SetEnvironmentVariableW") and
-    pe.signatures.serial == "04:f1:99:df:c0:5b:d3:4f:34:2f:f5:c2:14:cd:b1:b6:5a:69"
+    pe.signature.serial == "04:f1:99:df:c0:5b:d3:4f:34:2f:f5:c2:14:cd:b1:b6:5a:69"
     
 }
