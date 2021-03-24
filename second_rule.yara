@@ -1,5 +1,5 @@
 import "pe"
-
+import "cuckoo"
 
 rule malware_family{
   meta:
@@ -27,8 +27,8 @@ rule malware_family{
     
     pe.imports("winhttp.dll", "WinHttpCloseHandle") and
     pe.imports("kernel32.dll", "TlsSetValue") and
-    pe.imports("kernel32.dll", "SetProcessPriorityBoost") //and
-
+    pe.imports("kernel32.dll", "SetProcessPriorityBoost") and
+    cuckoo.network.host(/195\.201\.225\.248/)
     //pe.signatures[0].issuer == "/C=US/CN=R3"
     //pe.signatures[0].serial == "04:f1:99:df:c0:5b:d3:4f:34:2f:f5:c2:14:cd:b1:b6:5a:69"
     
