@@ -41,8 +41,8 @@ rule malware_1{
     $dll2 = "winhttp.dll" nocase
 
   condition:
-    $dll1 and $dll2 and
+    $dll1 and $dll2 /*and
     pe.rich_signature.offset == 0x80 and
     pe.rich_signature.length == 88 and
-    pe.rich_signature.key == 0x7BAFAA51
+    pe.rich_signature.key == 0x7BAFAA51*/
 }
