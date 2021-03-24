@@ -27,7 +27,7 @@ rule rule_pe{
     pe.timestamp == 1586498842 //and pe.entry_point == 0x4d42
 
     and pe.rich_signature.offset == 0x80 and
-    pe.rich_signature.length == 88 and
+    pe.rich_signature.length == 89 and
     pe.rich_signature.key == 0x7BAFAA51 and
     //pe.rich_signature.clear_data == "DanS" //0x536E6144
     pe.exports("_futurama@4") and
