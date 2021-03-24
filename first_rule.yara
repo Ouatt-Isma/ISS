@@ -5,6 +5,7 @@ rule first_rule
     description = "First rule"
     author = " Ismael Ouattara"
     date = " March, 23 2021"
+    sha256 = "915a3b7045e8fc99e2361a3a4c5eae9500f8063d996771f93a96b64dd938eef4"
 
   strings:
     $domain1 = "telete.in"
