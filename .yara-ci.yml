@@ -5,7 +5,7 @@ files:
 
 false_negatives:
   meta_names:
-    - hash*
-    - sha1*
-    - sha256*
-    -md5*
+  - hash*
+  - sha1*
+  - sha256*
+  - md5*
