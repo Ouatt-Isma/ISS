@@ -14,12 +14,14 @@ rule malware_family{
     $dll1 and $dll2 and
     //pe.machine == pe.MACHINE_I386 and (pe.characteristics & pe.EXECUTABLE_IMAGE) and
     //pe.subsystem == pe.SUBSYSTEM_WINDOWS_GUI and
+    /*
     pe.exports("_futurama@4") and
     pe.exports("_hiduk@8") and
     pe.exports("_hockey@4") and
     pe.exports("_husaberg@4") and
     pe.exports("_hyppo@4") and
     pe.exports("_lifan@8") and
+    */
     pe.imports("winhttp.dll", "WinHttpCloseHandle") and
     pe.imports("kernel32.dll", "SetEnvironmentVariableW") //and
     //pe.signatures[0].issuer == "/C=US/CN=R3"
