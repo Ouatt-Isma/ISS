@@ -1,27 +1,28 @@
 import "pe"
 //import "cuckoo"
 
+/*
+ *Falses positives test with yara-ci tools on github
+*/
 rule malware_1{
-meta:
-	description = "Second rule"
+	meta:
+		description = "Second rule"
 		author = " Ismael Ouattara"
 		date = " March, 23 2021"
-		//sha256 = "915a3b7045e8fc99e2361a3a4c5eae9500f8063d996771f93a96b64dd938eef4"
-		strings:
+		sha256 = "915a3b7045e8fc99e2361a3a4c5eae9500f8063d996771f93a96b64dd938eef4"
+	strings:
 		$dll1 = "kernel32.dll" nocase
 		$dll2 = "winhttp.dll" nocase
-		condition:
+	condition:
 		$dll1 and $dll2 and
 		pe.machine == pe.MACHINE_I386 and (pe.characteristics & pe.EXECUTABLE_IMAGE) and
 		pe.subsystem == pe.SUBSYSTEM_WINDOWS_GUI and
-		pe.timestamp == 1586498842 and //pe.entry_point == 0x4d42 and 
-
+		
 		//rich signature is enough
 		pe.rich_signature.offset == 0x80 and
 		pe.rich_signature.length == 88 and
 		pe.rich_signature.key == 0x7BAFAA51 and
 		//pe.rich_signature.clear_data == "DanS" //0x536E6144 and
-
 		pe.exports("_futurama@4") and
 		pe.exports("_hiduk@8") and
 		pe.exports("_hockey@4") and
@@ -34,18 +35,18 @@ meta:
 }
 
 rule malware_family_1{
-meta:
-	description = "Second rule"
+	meta:
+		description = "Second rule"
 		author = " Ismael Ouattara"
 		date = " March, 23 2021"
 		sha256_1 = "915a3b7045e8fc99e2361a3a4c5eae9500f8063d996771f93a96b64dd938eef4"
 		sha256_2 = "bd030578ee9dfbeec78deee6a26ea78137800c5279c2311cb1dab38ccc1dac92"
 
-		strings:
+	strings:
 		$dll1 = "kernel32.dll" nocase
 		$dll2 = "winhttp.dll" nocase
 
-		condition:
+	condition:
 		$dll1 and $dll2 and
 		pe.machine == pe.MACHINE_I386 and (pe.characteristics & pe.EXECUTABLE_IMAGE) and
 		pe.subsystem == pe.SUBSYSTEM_WINDOWS_GUI and
@@ -69,8 +70,8 @@ meta:
 }
 
 rule malware_family{
-meta:
-	description = "fird rule"
+	meta:
+		description = "fird rule"
 		author = " Ismael Ouattara"
 		date = " March, 23 2021"
 
@@ -90,12 +91,11 @@ meta:
 		sha256_14 = "385379b365b5a82ad24d2425ad80cbbd2777cd56df5d106cf56e88731aa51080"
 		sha256_no = "385379b365b5a82ad24d2425ad80cbbd2777cd56df5d106cf56e88721aa51080"
 
-
-		strings:
+	strings:
 		$dll1 = "kernel32.dll" nocase
 
 
-		condition:
+	condition:
 		$dll1 
 		and
 		pe.machine == pe.MACHINE_I386 and (pe.characteristics & pe.EXECUTABLE_IMAGE) and
@@ -129,7 +129,9 @@ meta:
 		  pe.signatures[0].serial == "04:f1:99:df:c0:5b:d3:4f:34:2f:f5:c2:14:cd:b1:b6:5a:69")
 		)
 
+		//Get information about connect host
+
 		//cuckoo.network.host(/195\.201\.225\.248/)
-		//35.232.94.42:
+		//cuckoo.network.host(/195\.201\.225\.248/)
 
 }
